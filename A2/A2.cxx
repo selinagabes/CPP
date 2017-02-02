@@ -12,8 +12,8 @@ template <typename TrimPredicate>
 auto string_range_trim(std::string& str, TrimPredicate p) ->
 std::pair<std::string::iterator,std::string::iterator>
 {
-	auto last_non_ws_iter = end(str);
-	auto first_non_ws_iter = find_if_not(begin(str), last_non_ws_iter, p);
+	auto last_non_ws_iter = rend(str);
+	auto first_non_ws_iter = find_if_not(rbegin(str), last_non_ws_iter, p);
 	return std::make_pair(first_non_ws_iter, last_non_ws_iter);
 
 }
